@@ -1,13 +1,8 @@
-﻿using WebAPI.Models;
 
-namespace WebAPI.Interfaces.Service
+using WebAPI.Models.DTOs;
+namespace WebAPI.Interfaces.Service;
+public interface IAccountService
 {
-    public interface IAccountService
-    {
-        public Task<Account> AddAccount(Account account);
-        public Task<IEnumerable<Account>> DeleteAccount(int accountId);
-        public Task<Account> GetAccountById(int accountId);
-        public Task<Account> UpdateAccount(int accountId, Account account);
-        public Task<Account> GetAccount(int accountId);
-    }
+    public Task<AccountReturnDTO> Add(AccountDTO account);
+    public Task<AccountReturnDTO> Get(int id);
 }

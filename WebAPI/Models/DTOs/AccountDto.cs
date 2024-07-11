@@ -1,4 +1,4 @@
-namespace AtmApp.Models.DTOs
+namespace WebAPI.Models.DTOs
 {
     public class AccountDTO
     {

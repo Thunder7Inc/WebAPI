@@ -1,6 +1,6 @@
 using WebAPI.Models.Enums;
 
-namespace AtmApp.Models.DTOs
+namespace WebAPI.Models.DTOs
 {
     public class TransationDTO
     {
