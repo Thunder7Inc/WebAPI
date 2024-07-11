@@ -7,20 +7,20 @@ using WebAPI.Models;
 
 namespace WebAPI.Services
 {
-    public class AccountServices : IAccountService
+    public class AccountService : IAccountService
     {
         #region Private Fields
 
         private readonly IRepository<int, Account> _accountRepository;
-        private readonly ILogger<AccountServices> _logger;
+        private readonly ILogger<AccountService> _logger;
         private readonly IMapper _mapper;
 
         #endregion
 
         #region Constructor
 
-        public AccountServices(IRepository<int, Account> accountRepository, IMapper mapper,
-            ILogger<AccountServices> logger)
+        public AccountService(IRepository<int, Account> accountRepository, IMapper mapper,
+            ILogger<AccountService> logger)
         {
             _accountRepository = accountRepository;
             _mapper = mapper;
