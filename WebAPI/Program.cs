@@ -51,6 +51,5 @@ app.UseCors("AllowAllCorsPolicy");
 
 app.UseHttpsRedirection();
 
-app.MapGet("/weatherforecast", () => { });
 app.MapControllers();
 app.Run();
