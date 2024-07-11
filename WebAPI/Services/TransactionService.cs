@@ -11,10 +11,10 @@ public class TransactionService : ITransactionService
 {
     private readonly IRepository<int, Transaction> _transactionRepository;
     private readonly IMapper _mapper;
-    private readonly ILogger<AccountServices> _logger;
+    private readonly ILogger<AccountService> _logger;
 
     public TransactionService(IRepository<int, Transaction> transactionRepository, IMapper mapper,
-        ILogger<AccountServices> logger)
+        ILogger<AccountService> logger)
     {
         _transactionRepository = transactionRepository;
         _mapper = mapper;
