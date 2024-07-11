@@ -5,7 +5,9 @@ namespace WebAPI.Interfaces.Service
 {
     public interface ITransactionService
     {
-        public Task<TransactionReturnDto> Add(TransationDTO transationDto);
-        public Task<TransactionReturnDto> Get(int id);
+        public Task<TransactionReturnDto> AddTransaction(TransactionDTO transaction);
+        public Task<TransactionReturnDto> GetTransactionById(int transactionId);
+        public Task<IEnumerable<TransactionReturnDto>> GetTransactions();
     }
+
 }
