@@ -7,5 +7,7 @@ namespace WebAPI.Models.DTOs
         public int AccountId { get; set; }
         public TransactionType Type { get; set; } 
         public double Amount { get; set; }
+        
+        public int PIN { get; set; } 
     }
 }

@@ -65,7 +65,6 @@ namespace WebAPI.Controllers
         /// </summary>
         /// <param name="account">The account object to be added.</param>
         /// <returns>An ActionResult containing the added account details.</returns>
-        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ProducesResponseType(typeof(AccountReturnDTO), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(ErrorModel), StatusCodes.Status400BadRequest)]

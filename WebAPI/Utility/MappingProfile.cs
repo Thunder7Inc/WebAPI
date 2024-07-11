@@ -11,11 +11,13 @@ public class MappingProfile : Profile
         #region Account
         CreateMap<AccountDTO, Account>().ReverseMap();   
         CreateMap<Account, AccountReturnDTO>().ReverseMap();   
+        CreateMap<AccountDTO, AccountReturnDTO>().ReverseMap();   
         #endregion
 
         #region Transaction
-        CreateMap<TransationDTO, Transaction>().ReverseMap();   
-        CreateMap<Account,TransactionReturnDto >().ReverseMap();   
+        CreateMap<TransactionDTO, Transaction>().ReverseMap();   
+        CreateMap<Transaction,TransactionReturnDto >().ReverseMap();   
+        CreateMap<TransactionDTO,TransactionReturnDto >().ReverseMap();   
         #endregion
     }
 }

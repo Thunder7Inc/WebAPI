@@ -46,8 +46,32 @@ public class TransactionService : ITransactionService
     {
         try
         {
+            
+            
             await ValidateTransaction(transactionDto);
             var transaction = _mapper.Map<Transaction>(transactionDto);
+            transaction.Date = DateTime.Now;
+
+            var accountId = transactionDto.AccountId;
+
+            var account = await _accountRepository.GetById(accountId);
+
+            if (transactionDto.PIN != account.PIN)
+            {
+                throw new InvalidPinException("Invalid PIN");
+            }
+
+            if (transaction.Type == TransactionType.Deposit)
+            {
+                account.Balance += transaction.Amount;
+            }
+            else if (transaction.Type == TransactionType.Withdrawl)
+            {
+                account.Balance -= transaction.Amount;
+            }
+
+            await _accountRepository.Update(account);
+            
             var addedTransaction = await _transactionRepository.Add(transaction);
             return _mapper.Map<TransactionReturnDto>(addedTransaction);
         }

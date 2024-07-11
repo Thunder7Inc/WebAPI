@@ -18,7 +18,7 @@ builder.Services.AddScoped<IRepository<int, Account>, AccountRepository>();
 builder.Services.AddScoped<IRepository<int, Transaction>, TransactionRepository>();
 
 builder.Services.AddScoped<IAccountService, AccountService>();
-// builder.Services.AddScoped<ITransacService, AccountService>();
+builder.Services.AddScoped<ITransactionService, TransactionService>();
 
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
