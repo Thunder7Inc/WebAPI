@@ -1,4 +1,6 @@
-﻿namespace WebAPI.Interfaces.Service
+﻿using WebAPI.Models;
+
+namespace WebAPI.Interfaces.Service
 {
     public interface ITransactionService
     {
