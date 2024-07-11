@@ -6,12 +6,19 @@ using WebAPI.Models;
 using WebAPI.Repository;
 using WebAPI.Services;
 using WebAPI.Utility;
+using DotNetEnv;
+
+
+DotNetEnv.Env.Load();
+
 
 var builder = WebApplication.CreateBuilder(args);
 
+var connectionString = Environment.GetEnvironmentVariable("SQL_SERVER_CONNECTION_STRING");
+
 
 builder.Services.AddDbContext<AtmAppContext>(
-    options => options.UseSqlServer(builder.Configuration.GetConnectionString("defaultConnection"))
+    options => options.UseSqlServer(connectionString)
 );
 
 builder.Services.AddScoped<IRepository<int, Account>, AccountRepository>();
