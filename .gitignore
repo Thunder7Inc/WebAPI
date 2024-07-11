@@ -1,2 +1,5 @@
 .idea
 WebAPI/obj
+.vs/
+WebAPI/WebAPI.csproj.user
+WebAPI/bin/
