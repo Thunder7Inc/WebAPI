@@ -50,8 +50,19 @@ public class TransactionService : ITransactionService
             
             await ValidateTransaction(transactionDto);
             var transaction = _mapper.Map<Transaction>(transactionDto);
-            transaction.Date = DateTime.Now;
 
+            // Get the current UTC time
+            DateTime utcNow = DateTime.UtcNow;
+
+            // Define the IST time zone
+            TimeZoneInfo istZone = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
+
+            // Convert the UTC time to IST
+            DateTime istNow = TimeZoneInfo.ConvertTimeFromUtc(utcNow, istZone);
+
+            // Assign the IST time to the transaction date
+            transaction.Date = istNow;
+            
             var accountId = transactionDto.AccountId;
 
             var account = await _accountRepository.GetById(accountId);
