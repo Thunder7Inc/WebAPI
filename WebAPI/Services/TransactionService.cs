@@ -149,6 +149,18 @@ public class TransactionService : ITransactionService
             throw new Exception($"Unable to retrieve transactions: {ex.Message}");
         }
     }
+    
+    
+    /// <summary>
+    /// Retrieves a transaction by its account Id.
+    /// </summary>
+    /// <param name="accountID">The account ID of the Customer.</param>
+    /// <returns>The transaction DTO object.</returns>
+    public async Task<IEnumerable<TransactionReturnDto>> GetTransactionsByAccountId(int accountId)
+    {
+        var transactions = (await _transactionRepository.GetAll()).Where(t => t.AccountId == accountId);
+        return _mapper.Map<IEnumerable<TransactionReturnDto>>(transactions);
+    }
 
     #endregion
 

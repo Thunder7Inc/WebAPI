@@ -101,6 +101,32 @@ public class TransactionController : ControllerBase
             return BadRequest(new { Message = ex.Message });
         }
     }
+    
+    
+    /// <summary>
+    /// Retrieves transactions by account ID.
+    /// </summary>
+    /// <param name="accountId">The ID of the account.</param>
+    /// <returns>The list of transaction objects for the specified account ID.</returns>
+    [HttpGet("account/{accountId}")]
+    public async Task<IActionResult> GetTransactionsByAccountId(int accountId)
+    {
+        try
+        {
+            var transactions = await _transactionService.GetTransactionsByAccountId(accountId);
+            return Ok(transactions);
+        }
+        catch (NoSuchTransactionExistException ex)
+        {
+            _logger.LogError(ex.Message);
+            return NotFound(new { Message = ex.Message });
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex.Message);
+            return BadRequest(new { Message = ex.Message });
+        }
+    }
 
     #endregion
 }

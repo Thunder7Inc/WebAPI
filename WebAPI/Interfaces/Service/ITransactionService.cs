@@ -8,6 +8,8 @@ namespace WebAPI.Interfaces.Service
         public Task<TransactionReturnDto> AddTransaction(TransactionDTO transaction);
         public Task<TransactionReturnDto> GetTransactionById(int transactionId);
         public Task<IEnumerable<TransactionReturnDto>> GetTransactions();
+        
+        public Task<IEnumerable<TransactionReturnDto>> GetTransactionsByAccountId(int accountId);
     }
 
 }
